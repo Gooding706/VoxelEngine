@@ -13,8 +13,9 @@ file(GLOB BuildFiles Src/*.cpp)
 add_executable(Vox ${BuildFiles} external/glad/src/glad.c)
 
 add_subdirectory(external/glfw)
+add_subdirectory(external/glm/glm/)
 
 
-target_include_directories(Vox PUBLIC external/glfw/include external/glad/include/)
+target_include_directories(Vox PUBLIC external/glfw/include external/glad/include/ Src/includes external/glm/glm)
 target_link_directories(Vox PRIVATE external/glfw/src)
 target_link_libraries(Vox glfw ${COREVIDEO} ${COREVIDEO} ${OPENGL} ${IOKIT} ${COCOA} ${CARBON})
